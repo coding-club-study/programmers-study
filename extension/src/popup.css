@@ -1,0 +1,38 @@
+@font-face {
+  font-family: Galmuri11;
+  src: url("../../node_modules/galmuri/dist/Galmuri11.woff2") format("woff2");
+  font-display: swap;
+}
+
+:root {
+  font-family: Galmuri11, sans-serif;
+  color: #241d29;
+  background: #fff9ee;
+}
+* { box-sizing: border-box; }
+body { margin: 0; width: 360px; }
+main { padding: 15px; }
+header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 10px; border-bottom: 2px solid #241d29; }
+h1 { margin: 0; font-size: 18px; }
+header > span { width: 34px; height: 34px; display: grid; place-items: center; border: 2px solid #241d29; border-radius: 50%; background: #ff5b9d; }
+.status { display: flex; align-items: center; gap: 9px; margin: 12px 0; padding: 10px; border: 2px solid #241d29; border-radius: 9px; background: white; }
+.status.connected { background: #bdedcd; }
+.status img { width: 36px; height: 36px; border: 2px solid #241d29; border-radius: 50%; }
+.status b, .status span { display: block; }
+.status b { font-size: 12px; }
+.status span { margin-top: 3px; font-size: 10px; }
+form { display: grid; gap: 8px; }
+label { display: grid; gap: 4px; font-size: 10px; font-weight: 700; }
+input { width: 100%; padding: 8px; border: 2px solid #241d29; border-radius: 7px; background: white; font: inherit; }
+.repo-fields { display: grid; grid-template-columns: 1fr 1.3fr; gap: 7px; }
+button { padding: 8px; border: 2px solid #241d29; border-radius: 7px; background: white; box-shadow: 2px 2px 0 #241d29; font: inherit; cursor: pointer; }
+button:active { transform: translate(2px,2px); box-shadow: none; }
+.primary { background: #aa8bfa; }
+.activity { margin: 13px 0; border-top: 1px solid #d8d1d9; }
+.activity div { padding: 9px 0; border-bottom: 1px solid #d8d1d9; font-size: 11px; }
+.activity span { display: block; margin-bottom: 3px; color: #776d79; font-size: 9px; }
+.activity b { float: right; }
+nav { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+nav .quiet { grid-column: 1 / -1; border: 0; box-shadow: none; color: #786e7a; background: transparent; text-decoration: underline; }
+#message { min-height: 18px; margin: 11px 0 0; font-size: 10px; line-height: 1.5; }
+#message.error { color: #b02358; }

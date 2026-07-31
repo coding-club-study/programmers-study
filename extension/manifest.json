@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Coding Club Programmers Tracker",
+  "version": "0.1.0",
+  "description": "프로그래머스 풀이 시간을 기록하고 GitHub 스터디 저장소에 업로드합니다.",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": [
+    "https://api.github.com/*",
+    "https://school.programmers.co.kr/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Coding Club"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://school.programmers.co.kr/learn/courses/*/lessons/*"],
+      "js": ["content-script.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["fonts/*"],
+      "matches": ["https://school.programmers.co.kr/*"]
+    }
+  ]
+}

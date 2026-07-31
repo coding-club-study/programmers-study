@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coding Club</title>
+  </head>
+  <body>
+    <main>
+      <header><h1>CODING CLUB!</h1><span>✦</span></header>
+      <section id="status" class="status">연결 상태 확인 중 · · ·</section>
+
+      <form id="settings">
+        <label>GITHUB ACCESS TOKEN<input id="token" type="password" autocomplete="off" placeholder="저장된 토큰은 표시하지 않아요" /></label>
+        <div class="repo-fields">
+          <label>OWNER<input id="owner" required placeholder="aryoo" /></label>
+          <label>REPOSITORY<input id="repo" required placeholder="coding-study" /></label>
+        </div>
+        <label>BRANCH<input id="branch" value="main" required /></label>
+        <label>DASHBOARD URL<input id="dashboardUrl" type="url" placeholder="https://aryoo.github.io/repository/" /></label>
+        <button class="primary" type="submit">저장하고 연결 확인</button>
+      </form>
+
+      <section id="activity" class="activity"></section>
+      <nav>
+        <button id="openTimer" type="button">현재 타이머 열기</button>
+        <button id="uploadPending" type="button">대기 기록 업로드</button>
+        <button id="openDashboard" type="button">대시보드 열기</button>
+        <button id="disconnect" class="quiet" type="button">GitHub 연결 해제</button>
+      </nav>
+      <p id="message" role="status"></p>
+    </main>
+    <script type="module" src="/src/popup.ts"></script>
+  </body>
+</html>

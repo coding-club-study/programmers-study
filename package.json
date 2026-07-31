@@ -1,0 +1,27 @@
+{
+  "name": "programmers-coding-club",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "dashboard",
+    "extension",
+    "packages/shared"
+  ],
+  "scripts": {
+    "build": "npm run generate:data && npm run build -w @coding-club/dashboard && npm run build -w @coding-club/extension",
+    "build:dashboard": "npm run generate:data && npm run build -w @coding-club/dashboard",
+    "build:extension": "npm run build -w @coding-club/extension",
+    "dev": "npm run generate:data && npm run dev -w @coding-club/dashboard",
+    "generate:data": "node scripts/generate-dashboard-data.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "jsdom": "^26.1.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.2.0"
+  }
+}
