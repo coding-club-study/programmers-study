@@ -1,0 +1,24 @@
+{
+  "githubId": "aoooec",
+  "displayName": "aoooec",
+  "profileImageUrl": "https://avatars.githubusercontent.com/u/112041983?v=4",
+  "joinedAt": "2026-08-03",
+  "days": {
+    "2026-08-03": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 37,
+          "language": "언어 확인 필요",
+          "problemId": "181952",
+          "solvedAt": "2026-08-02T23:21:19.821Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-02T23:20:42.815Z",
+          "title": "문자열 출력하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/181952?language=java"
+        }
+      ]
+    }
+  }
+}
