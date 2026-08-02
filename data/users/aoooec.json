@@ -28,6 +28,18 @@
           "startedAt": "2026-08-02T23:35:20.748Z",
           "title": "a와 b 출력하기",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/181951?language=java"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 279,
+          "language": "java",
+          "problemId": "181949",
+          "solvedAt": "2026-08-02T23:50:25.066Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-02T23:45:46.040Z",
+          "title": "대소문자 바꿔서 출력하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/181949",
+          "reflection": "메서드 하나도 모르겠다"
         }
       ]
     }
