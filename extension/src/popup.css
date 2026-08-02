@@ -27,6 +27,10 @@ input { width: 100%; padding: 8px; border: 2px solid #241d29; border-radius: 7px
 .repo-fields { display: grid; grid-template-columns: 1fr 1.3fr; gap: 7px; }
 button { padding: 8px; border: 2px solid #241d29; border-radius: 7px; background: white; box-shadow: 2px 2px 0 #241d29; font: inherit; cursor: pointer; }
 button:active { transform: translate(2px,2px); box-shadow: none; }
+button:disabled { color: #948b96; background: #e7e2e7; border-color: #948b96; box-shadow: 2px 2px 0 #948b96; cursor: not-allowed; }
+button:disabled:active { transform: none; box-shadow: 2px 2px 0 #948b96; }
+.dashboard-button { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-top: 12px; padding: 12px; background: #ff5b9d; color: white; font-weight: 700; }
+.dashboard-button span { font-size: 16px; }
 .primary { background: #aa8bfa; }
 .activity { margin: 13px 0; border-top: 1px solid #d8d1d9; }
 .activity div { padding: 9px 0; border-bottom: 1px solid #d8d1d9; font-size: 11px; }

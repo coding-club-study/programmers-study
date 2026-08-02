@@ -29,6 +29,7 @@ export interface ProblemRecord {
   durationSeconds: number;
   durationEdited: boolean;
   originalDurationSeconds?: number;
+  reflection?: string;
   source: "chrome-extension";
 }
 

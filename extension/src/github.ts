@@ -124,9 +124,7 @@ export async function uploadPendingSolve(settings: ExtensionSettings, pending: P
 
     let merged: UserData;
     try {
-      merged = mergeProblem(base, pending.problem, pending.reflection, {
-        updateReflection: Boolean(pending.reflection)
-      });
+      merged = mergeProblem(base, pending.problem, pending.reflection);
     } catch (cause) {
       if (cause instanceof DuplicateProblemError) return { status: "duplicate", data: base };
       throw cause;

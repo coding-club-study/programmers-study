@@ -29,6 +29,7 @@ function StreakGraph({ user }: { user: UserData }) {
         {day?.problems.map((problem) => (
           <span key={`${cell.dateKey}-${problem.problemId}`}>
             {problem.title}<small>{problem.language} · {formatDuration(problem.durationSeconds)}</small>
+            {problem.reflection && <small>♡ {problem.reflection}</small>}
           </span>
         ))}
         {day?.reflection && <blockquote>♡ {day.reflection}</blockquote>}
@@ -95,9 +96,11 @@ function UserCard({ user }: { user: UserData }) {
           <ol className="problems">
             {today.problems.map((problem) => (
               <li key={problem.problemId}>
-                <a href={problem.url} target="_blank" rel="noreferrer">{problem.title}</a>
-                <b>{formatDuration(problem.durationSeconds)}</b>
-                <small>{problem.language}</small>
+                <div className="problem-record">
+                  <a href={problem.url} target="_blank" rel="noreferrer">{problem.title}</a>
+                  <small><b>{formatDuration(problem.durationSeconds)}</b><i aria-hidden="true">|</i>{problem.language}</small>
+                  {problem.reflection && <p>♡ {problem.reflection}</p>}
+                </div>
               </li>
             ))}
           </ol>
@@ -122,7 +125,7 @@ export function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(DATA_URL)
+    fetch(`${DATA_URL}?refresh=${Date.now()}`, { cache: "no-store" })
       .then(async (response) => {
         if (!response.ok) throw new Error(`데이터를 불러오지 못했습니다. (${response.status})`);
         return response.json() as Promise<UserData[]>;

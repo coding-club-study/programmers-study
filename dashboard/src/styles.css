@@ -55,12 +55,16 @@ h1 { margin: 0; font-size: 28px; letter-spacing: .04em; }
 .streak-legend b { color: #6947c6; }
 h2 { margin: 17px 0 9px; font-size: 12px; }
 .problems { padding: 0; margin: 0; list-style: none; counter-reset: problems; }
-.problems li { display: grid; grid-template-columns: 1fr auto; gap: 4px 7px; padding: 9px 0; border-bottom: 1px solid #ded7dc; font-size: 12px; }
-.problems li::before { counter-increment: problems; content: "0" counter(problems); grid-row: 1 / 3; color: #6947c6; }
+.problems li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 7px; padding: 9px 0; border-bottom: 1px solid #ded7dc; font-size: 12px; }
+.problems li::before { counter-increment: problems; content: "0" counter(problems); color: #6947c6; }
+.problem-record { min-width: 0; }
 .problems a { color: inherit; text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .problems a:hover { color: #6947c6; text-decoration: underline; }
-.problems b { font-size: 11px; }
-.problems small { grid-column: 2; color: #776d79; }
+.problem-record > a { display: block; font-weight: 700; }
+.problem-record > small { display: flex; gap: 6px; align-items: center; margin-top: 3px; color: #776d79; }
+.problem-record > small b { color: #241d29; font-size: 11px; font-weight: 400; }
+.problem-record > small i { color: #b5adb6; font-style: normal; }
+.problem-record > p { margin: 7px 0 0; padding: 7px 8px; border-left: 3px solid #ff5b9d; background: #fff1f6; line-height: 1.5; }
 .reflection { margin: 11px 0 0; padding: 9px; border-left: 4px solid #ff5b9d; background: #fff1f6; font-size: 12px; line-height: 1.55; }
 .empty { padding: 25px 5px; color: #7b727c; text-align: center; font-size: 12px; }
 .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 14px; }

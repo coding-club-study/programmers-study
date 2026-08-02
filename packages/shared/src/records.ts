@@ -21,7 +21,7 @@ export function createUserData(profile: GitHubProfile, joinedAt = new Date()): U
 export function validateReflection(reflection: string): string {
   const normalized = reflection.replace(/\r\n/g, "\n").trim();
   if (normalized.length > REFLECTION_MAX_LENGTH) {
-    throw new Error(`오늘의 소감은 ${REFLECTION_MAX_LENGTH}자 이하로 입력해 주세요.`);
+    throw new Error(`문제별 소감은 ${REFLECTION_MAX_LENGTH}자 이하로 입력해 주세요.`);
   }
   return normalized;
 }
@@ -34,23 +34,22 @@ export function hasDuplicate(user: UserData, problem: ProblemRecord): boolean {
 export function mergeProblem(
   original: UserData,
   problem: ProblemRecord,
-  reflection?: string,
-  options: { updateReflection?: boolean } = {}
+  reflection?: string
 ): UserData {
   if (hasDuplicate(original, problem)) throw new DuplicateProblemError();
   const dateKey = toSeoulDateKey(problem.solvedAt);
   const existing = original.days[dateKey];
-  const nextReflection =
-    options.updateReflection || !existing?.reflection
-      ? validateReflection(reflection ?? existing?.reflection ?? "")
-      : existing.reflection;
+  const problemWithReflection: ProblemRecord = {
+    ...problem,
+    ...(reflection?.trim() ? { reflection: validateReflection(reflection) } : {})
+  };
   return {
     ...original,
     days: {
       ...original.days,
       [dateKey]: {
-        reflection: nextReflection,
-        problems: [...(existing?.problems ?? []), problem]
+        reflection: existing?.reflection ?? "",
+        problems: [...(existing?.problems ?? []), problemWithReflection]
       }
     }
   };

@@ -179,7 +179,7 @@ async function initialize() {
       <label>풀이 시간
         <input data-duration inputmode="numeric" value="${formatClock(value.problem.durationSeconds)}" aria-label="풀이 시간">
       </label>
-      <label>오늘의 소감
+      <label>문제별 소감
         <textarea data-reflection maxlength="500" placeholder="선택 사항이에요">${escapeHtml(value.reflection)}</textarea>
       </label>
       <div class="actions">
@@ -250,10 +250,12 @@ async function initialize() {
       await setStored(pendingKey, pending);
       render();
     });
-    panel.querySelector("[data-reflection]")?.addEventListener("input", async (event) => {
+    panel.querySelector("[data-reflection]")?.addEventListener("input", (event) => {
       if (!pending) return;
       pending = { ...pending, reflection: (event.currentTarget as HTMLTextAreaElement).value };
-      await setStored(pendingKey, pending);
+    });
+    panel.querySelector("[data-reflection]")?.addEventListener("blur", async () => {
+      if (pending) await setStored(pendingKey, pending);
     });
     panel.querySelector("[data-upload]")?.addEventListener("click", async () => {
       if (!pending) return;
@@ -349,11 +351,13 @@ async function initialize() {
     if (area !== "local") return;
     if (changes[timerKey]?.newValue) {
       timer = changes[timerKey].newValue as TimerState;
-      render();
+      if (!pending) render();
     }
     if (changes[pendingKey]) {
-      pending = changes[pendingKey].newValue as PendingSolve | undefined;
-      render();
+      const nextPending = changes[pendingKey].newValue as PendingSolve | undefined;
+      const changedInAnotherContext = JSON.stringify(nextPending) !== JSON.stringify(pending);
+      pending = nextPending;
+      if (changedInAnotherContext) render();
     }
   });
 
@@ -363,11 +367,14 @@ async function initialize() {
     observerQueued = true;
     window.setTimeout(() => {
       observerQueued = false;
-      if (isAcceptedResult()) void prepareSolved();
+      if (isAcceptedResult()) {
+        void prepareSolved();
+      }
     }, 250);
   });
   observer.observe(document.body, { childList: true, subtree: true, attributes: true });
   window.addEventListener("pagehide", () => {
+    if (pending) void setStored(pendingKey, pending);
     clearInterval(tickHandle);
     observer.disconnect();
   }, { once: true });

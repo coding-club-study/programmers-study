@@ -33,23 +33,17 @@ describe("사용자 기록 병합", () => {
     });
   });
 
-  it("같은 날짜의 첫 문제와 소감을 추가한다", () => {
+  it("첫 문제에 문제별 소감을 추가한다", () => {
     const merged = mergeProblem(createUserData(profile), problem("42576"), "오늘의 소감");
     expect(merged.days["2026-07-31"]?.problems).toHaveLength(1);
-    expect(merged.days["2026-07-31"]?.reflection).toBe("오늘의 소감");
+    expect(merged.days["2026-07-31"]?.problems[0]?.reflection).toBe("오늘의 소감");
   });
 
-  it("같은 날짜의 두 번째 문제를 병합하고 기존 소감을 유지한다", () => {
+  it("같은 날짜의 각 문제에 서로 다른 소감을 저장한다", () => {
     const first = mergeProblem(createUserData(profile), problem("42576"), "기존 소감");
     const second = mergeProblem(first, problem("12906"), "바뀐 소감");
     expect(second.days["2026-07-31"]?.problems).toHaveLength(2);
-    expect(second.days["2026-07-31"]?.reflection).toBe("기존 소감");
-  });
-
-  it("요청 시 기존 소감을 수정한다", () => {
-    const first = mergeProblem(createUserData(profile), problem("42576"), "기존 소감");
-    const second = mergeProblem(first, problem("12906"), "수정 소감", { updateReflection: true });
-    expect(second.days["2026-07-31"]?.reflection).toBe("수정 소감");
+    expect(second.days["2026-07-31"]?.problems.map((item) => item.reflection)).toEqual(["기존 소감", "바뀐 소감"]);
   });
 
   it("다른 날짜 기록을 추가한다", () => {

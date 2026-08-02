@@ -19,6 +19,7 @@ const branch = document.querySelector<HTMLInputElement>("#branch")!;
 const dashboardUrl = document.querySelector<HTMLInputElement>("#dashboardUrl")!;
 const activity = document.querySelector<HTMLElement>("#activity")!;
 const message = document.querySelector<HTMLElement>("#message")!;
+const openDashboard = document.querySelector<HTMLButtonElement>("#openDashboard")!;
 
 let settings = await getSettings();
 
@@ -33,6 +34,12 @@ async function refresh() {
   repo.value = settings.repo;
   branch.value = settings.branch || "main";
   dashboardUrl.value = settings.dashboardUrl ?? "";
+  openDashboard.disabled = !settings.githubId || !settings.dashboardUrl;
+  openDashboard.title = !settings.githubId
+    ? "GitHub을 연결하면 사용할 수 있습니다."
+    : !settings.dashboardUrl
+      ? "대시보드 URL을 설정해 주세요."
+      : "대시보드 열기";
   status.innerHTML = settings.githubId
     ? `<img src="${settings.profileImageUrl ?? ""}" alt=""><div><b>@${settings.githubId} 연결됨</b><span>Contents 쓰기 권한 확인</span></div>`
     : `<div><b>GitHub 연결 필요</b><span>Organization 멤버는 fine-grained PAT를 권장합니다.</span></div>`;
@@ -124,7 +131,7 @@ document.querySelector("#uploadPending")?.addEventListener("click", async () => 
   await refresh();
 });
 
-document.querySelector("#openDashboard")?.addEventListener("click", async () => {
+openDashboard.addEventListener("click", async () => {
   if (!settings.dashboardUrl) {
     showMessage("대시보드 URL을 먼저 설정해 주세요.", true);
     return;
