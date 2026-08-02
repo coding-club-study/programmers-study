@@ -17,6 +17,17 @@
           "startedAt": "2026-08-02T23:20:42.815Z",
           "title": "문자열 출력하기",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/181952?language=java"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 60,
+          "language": "Java",
+          "problemId": "181951",
+          "solvedAt": "2026-08-02T23:36:21.115Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-02T23:35:20.748Z",
+          "title": "a와 b 출력하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/181951?language=java"
         }
       ]
     }
