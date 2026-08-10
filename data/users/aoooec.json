@@ -40,6 +40,17 @@
           "title": "대소문자 바꿔서 출력하기",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/181949",
           "reflection": "메서드 하나도 모르겠다"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 35,
+          "language": "java",
+          "problemId": "181950",
+          "solvedAt": "2026-08-02T23:40:24.986Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-02T23:39:49.384Z",
+          "title": "문자열 반복해서 출력하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/181950"
         }
       ]
     }
