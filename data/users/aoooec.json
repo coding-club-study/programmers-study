@@ -53,6 +53,23 @@
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/181950"
         }
       ]
+    },
+    "2026-08-10": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 707,
+          "language": "Java",
+          "problemId": "12912",
+          "solvedAt": "2026-08-10T07:42:23.257Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-10T07:30:35.994Z",
+          "title": "두 정수 사이의 합",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/12912?language=java",
+          "reflection": "이제 나는 이런 허접문제도 풀지못해.."
+        }
+      ]
     }
   }
 }
