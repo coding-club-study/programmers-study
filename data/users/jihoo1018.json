@@ -19,6 +19,23 @@
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120861"
         }
       ]
+    },
+    "2026-08-10": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 298,
+          "language": "java",
+          "problemId": "12906",
+          "solvedAt": "2026-08-10T08:46:45.872Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-10T04:40:49.389Z",
+          "title": "같은 숫자는 싫어",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/12906",
+          "reflection": "낫배드"
+        }
+      ]
     }
   }
 }
