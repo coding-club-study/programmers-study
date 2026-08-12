@@ -36,6 +36,22 @@
           "reflection": "낫배드"
         }
       ]
+    },
+    "2026-08-12": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 5090,
+          "language": "java",
+          "problemId": "131128",
+          "solvedAt": "2026-08-12T08:41:27.763Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-12T07:16:36.783Z",
+          "title": "숫자 짝꿍",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/131128"
+        }
+      ]
     }
   }
 }
