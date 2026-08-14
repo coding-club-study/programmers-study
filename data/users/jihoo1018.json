@@ -52,6 +52,22 @@
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/131128"
         }
       ]
+    },
+    "2026-08-14": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 645,
+          "language": "java",
+          "problemId": "120884",
+          "solvedAt": "2026-08-14T08:21:30.821Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-14T08:10:45.789Z",
+          "title": "치킨 쿠폰",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120884"
+        }
+      ]
     }
   }
 }
