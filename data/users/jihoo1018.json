@@ -68,6 +68,22 @@
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120884"
         }
       ]
+    },
+    "2026-08-20": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 196,
+          "language": "java",
+          "problemId": "120835",
+          "solvedAt": "2026-08-20T07:59:48.435Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-20T07:56:31.626Z",
+          "title": "진료 순서 정하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120835"
+        }
+      ]
     }
   }
 }
