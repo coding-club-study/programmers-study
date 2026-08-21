@@ -84,6 +84,22 @@
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120835"
         }
       ]
+    },
+    "2026-08-21": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 479,
+          "language": "java",
+          "problemId": "120887",
+          "solvedAt": "2026-08-21T04:43:55.506Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-21T04:35:56.107Z",
+          "title": "k의 개수",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120887"
+        }
+      ]
     }
   }
 }
