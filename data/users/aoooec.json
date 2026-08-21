@@ -70,6 +70,23 @@
           "reflection": "이제 나는 이런 허접문제도 풀지못해.."
         }
       ]
+    },
+    "2026-08-21": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 188,
+          "language": "Java",
+          "problemId": "120830",
+          "solvedAt": "2026-08-21T02:53:50.538Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-21T02:50:41.823Z",
+          "title": "양꼬치",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120830?language=java",
+          "reflection": "양꼬치 먹고싶다"
+        }
+      ]
     }
   }
 }
