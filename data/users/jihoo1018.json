@@ -98,6 +98,17 @@
           "startedAt": "2026-08-21T04:35:56.107Z",
           "title": "k의 개수",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120887"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 363,
+          "language": "mysql",
+          "problemId": "132203",
+          "solvedAt": "2026-08-21T04:50:26.778Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-21T04:44:23.047Z",
+          "title": "흉부외과 또는 일반외과 의사 목록 출력하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/132203"
         }
       ]
     }
