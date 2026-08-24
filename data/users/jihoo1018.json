@@ -111,6 +111,23 @@
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/132203"
         }
       ]
+    },
+    "2026-08-24": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 160,
+          "language": "java",
+          "problemId": "120838",
+          "solvedAt": "2026-08-24T05:29:08.929Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-24T05:26:28.010Z",
+          "title": "모스부호 (1)",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120838",
+          "reflection": "해쉬맵"
+        }
+      ]
     }
   }
 }
