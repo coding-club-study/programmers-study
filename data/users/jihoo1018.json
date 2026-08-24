@@ -126,6 +126,17 @@
           "title": "모스부호 (1)",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120838",
           "reflection": "해쉬맵"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 2915,
+          "language": "mysql",
+          "problemId": "59406",
+          "solvedAt": "2026-08-24T06:18:51.526Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-24T05:30:15.879Z",
+          "title": "동물 수 구하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/59406"
         }
       ]
     }
