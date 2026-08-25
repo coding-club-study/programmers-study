@@ -153,6 +153,17 @@
           "startedAt": "2026-08-25T07:25:09.104Z",
           "title": "문자열 정렬하기 (2)",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120911"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 90,
+          "language": "mysql",
+          "problemId": "59407",
+          "solvedAt": "2026-08-25T07:34:16.793Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-25T07:32:46.600Z",
+          "title": "이름이 있는 동물의 아이디",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/59407"
         }
       ]
     }
