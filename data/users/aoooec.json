@@ -87,6 +87,23 @@
           "reflection": "양꼬치 먹고싶다"
         }
       ]
+    },
+    "2026-08-25": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 456,
+          "language": "java",
+          "problemId": "12909",
+          "solvedAt": "2026-08-25T04:06:05.867Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-25T03:58:28.951Z",
+          "title": "올바른 괄호",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/12909",
+          "reflection": "매일문제풀기를 잊어.."
+        }
+      ]
     }
   }
 }
