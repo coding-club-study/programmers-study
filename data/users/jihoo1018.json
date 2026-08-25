@@ -139,6 +139,22 @@
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/59406"
         }
       ]
+    },
+    "2026-08-25": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 432,
+          "language": "java",
+          "problemId": "120911",
+          "solvedAt": "2026-08-25T07:32:21.229Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-25T07:25:09.104Z",
+          "title": "문자열 정렬하기 (2)",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120911"
+        }
+      ]
     }
   }
 }
