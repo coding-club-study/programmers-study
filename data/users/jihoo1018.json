@@ -166,6 +166,22 @@
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/59407"
         }
       ]
+    },
+    "2026-08-26": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 133,
+          "language": "Java",
+          "problemId": "120806",
+          "solvedAt": "2026-08-26T06:16:29.446Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-26T06:14:15.920Z",
+          "title": "두 수의 나눗셈",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120806?language=java"
+        }
+      ]
     }
   }
 }
