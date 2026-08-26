@@ -180,6 +180,18 @@
           "startedAt": "2026-08-26T06:14:15.920Z",
           "title": "두 수의 나눗셈",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120806?language=java"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 158,
+          "language": "mysql",
+          "problemId": "59408",
+          "solvedAt": "2026-08-26T06:20:07.710Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-26T06:17:28.842Z",
+          "title": "중복 제거하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/59408",
+          "reflection": "오타 실화?"
         }
       ]
     }
