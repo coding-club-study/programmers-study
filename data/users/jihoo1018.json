@@ -209,6 +209,17 @@
           "title": "몫 구하기",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120805?language=java",
           "reflection": "사칙연산"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 248,
+          "language": "mysql",
+          "problemId": "59410",
+          "solvedAt": "2026-08-27T01:50:48.289Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-27T01:46:39.309Z",
+          "title": "NULL 처리하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/59410"
         }
       ]
     }
