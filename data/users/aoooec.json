@@ -121,6 +121,23 @@
           "reflection": "모든걸 잊다"
         }
       ]
+    },
+    "2026-08-31": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 653,
+          "language": "java",
+          "problemId": "12946",
+          "solvedAt": "2026-08-30T23:39:05.771Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-30T23:07:10.892Z",
+          "title": "하노이의 탑",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/12946",
+          "reflection": "쌀국수 먹고싶오"
+        }
+      ]
     }
   }
 }
