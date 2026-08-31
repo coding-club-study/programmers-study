@@ -222,6 +222,22 @@
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/59410"
         }
       ]
+    },
+    "2026-08-31": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 262,
+          "language": "java",
+          "problemId": "120880",
+          "solvedAt": "2026-08-31T08:29:19.540Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-31T08:24:57.349Z",
+          "title": "특이한 정렬",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120880"
+        }
+      ]
     }
   }
 }
