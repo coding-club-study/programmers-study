@@ -238,6 +238,22 @@
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120880"
         }
       ]
+    },
+    "2026-09-01": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 348,
+          "language": "java",
+          "problemId": "120848",
+          "solvedAt": "2026-09-01T06:39:00.200Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-01T06:33:11.896Z",
+          "title": "팩토리얼",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120848"
+        }
+      ]
     }
   }
 }
