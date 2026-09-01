@@ -252,6 +252,17 @@
           "startedAt": "2026-09-01T06:33:11.896Z",
           "title": "팩토리얼",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120848"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 332,
+          "language": "mysql",
+          "problemId": "131120",
+          "solvedAt": "2026-09-01T07:09:44.184Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-01T07:04:12.165Z",
+          "title": "3월에 태어난 여성 회원 목록 출력하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/131120"
         }
       ]
     }
