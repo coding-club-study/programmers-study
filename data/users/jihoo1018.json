@@ -279,6 +279,17 @@
           "startedAt": "2026-09-02T07:38:19.254Z",
           "title": "한 번만 등장한 문자",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120896"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 470,
+          "language": "mysql",
+          "problemId": "273709",
+          "solvedAt": "2026-09-02T08:01:46.409Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-02T07:53:56.234Z",
+          "title": "조건에 맞는 아이템들의 가격의 총합 구하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/273709"
         }
       ]
     }
