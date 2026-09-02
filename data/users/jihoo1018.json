@@ -265,6 +265,22 @@
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/131120"
         }
       ]
+    },
+    "2026-09-02": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 837,
+          "language": "java",
+          "problemId": "120896",
+          "solvedAt": "2026-09-02T07:52:16.867Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-02T07:38:19.254Z",
+          "title": "한 번만 등장한 문자",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120896"
+        }
+      ]
     }
   }
 }
