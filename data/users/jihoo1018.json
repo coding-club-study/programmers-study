@@ -220,6 +220,17 @@
           "startedAt": "2026-08-27T01:46:39.309Z",
           "title": "NULL 처리하기",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/59410"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 23,
+          "language": "Java",
+          "problemId": "120802",
+          "solvedAt": "2026-08-27T01:41:12.426Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-27T01:40:48.561Z",
+          "title": "두 수의 합 구하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120802?language=java"
         }
       ]
     },
