@@ -231,6 +231,17 @@
           "startedAt": "2026-08-27T01:40:48.561Z",
           "title": "두 수의 합 구하기",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120802?language=java"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 278,
+          "language": "java",
+          "problemId": "120871",
+          "solvedAt": "2026-08-27T01:46:30.449Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-08-27T01:41:52.192Z",
+          "title": "저주의 숫자 3",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120871"
         }
       ]
     },
