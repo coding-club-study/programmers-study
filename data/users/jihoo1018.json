@@ -314,6 +314,22 @@
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/273709"
         }
       ]
+    },
+    "2026-09-03": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 122,
+          "language": "java",
+          "problemId": "120912",
+          "solvedAt": "2026-09-03T02:12:03.184Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-03T02:10:00.621Z",
+          "title": "7의 개수",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120912"
+        }
+      ]
     }
   }
 }
