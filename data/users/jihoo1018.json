@@ -328,6 +328,17 @@
           "startedAt": "2026-09-03T02:10:00.621Z",
           "title": "7의 개수",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120912"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 420,
+          "language": "mysql",
+          "problemId": "132202",
+          "solvedAt": "2026-09-03T04:42:24.873Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-03T04:35:24.501Z",
+          "title": "진료과별 총 예약 횟수 출력하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/132202"
         }
       ]
     }
