@@ -1,10 +1,32 @@
 import { uploadPendingSolve, verifyConnection } from "./github";
-import { getSettings, saveSettings } from "./storage";
+import { completePendingUpload, getSettings, saveSettings } from "./storage";
 import type { ExtensionSettings, PendingSolve } from "@coding-club/shared";
 
 type Message =
   | { type: "github.verify"; settings: ExtensionSettings }
-  | { type: "record.upload"; pending: PendingSolve };
+  | { type: "record.upload"; pendingKey: string; pending: PendingSolve };
+
+let uploadQueue: Promise<void> = Promise.resolve();
+const activeUploads = new Map<string, ReturnType<typeof uploadPendingSolve>>();
+
+function queueUpload(pendingKey: string, pending: PendingSolve) {
+  const active = activeUploads.get(pendingKey);
+  if (active) return active;
+
+  const upload = uploadQueue.then(async () => {
+    const settings = await getSettings();
+    const result = await uploadPendingSolve(settings, pending);
+    await completePendingUpload(pendingKey, pending, result.status);
+    return result;
+  });
+  activeUploads.set(pendingKey, upload);
+  uploadQueue = upload.then(() => undefined, () => undefined);
+  void upload.then(
+    () => activeUploads.delete(pendingKey),
+    () => activeUploads.delete(pendingKey)
+  );
+  return upload;
+}
 
 chrome.runtime.onMessage.addListener((message: Message, _sender, sendResponse) => {
   void (async () => {
@@ -23,8 +45,7 @@ chrome.runtime.onMessage.addListener((message: Message, _sender, sendResponse) =
         return;
       }
       if (message.type === "record.upload") {
-        const settings = await getSettings();
-        const result = await uploadPendingSolve(settings, message.pending);
+        const result = await queueUpload(message.pendingKey, message.pending);
         sendResponse({ ok: true, result });
         return;
       }

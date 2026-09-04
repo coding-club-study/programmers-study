@@ -1,13 +1,11 @@
 import "./popup.css";
-import type { ExtensionSettings, PendingSolve } from "@coding-club/shared";
+import type { ExtensionSettings } from "@coding-club/shared";
 import {
   findPending,
   findTimers,
   getSettings,
   LAST_UPLOAD_KEY,
-  removeStored,
-  saveSettings,
-  setStored
+  saveSettings
 } from "./storage";
 
 const status = document.querySelector<HTMLElement>("#status")!;
@@ -20,6 +18,7 @@ const dashboardUrl = document.querySelector<HTMLInputElement>("#dashboardUrl")!;
 const activity = document.querySelector<HTMLElement>("#activity")!;
 const message = document.querySelector<HTMLElement>("#message")!;
 const openDashboard = document.querySelector<HTMLButtonElement>("#openDashboard")!;
+const uploadPending = document.querySelector<HTMLButtonElement>("#uploadPending")!;
 
 let settings = await getSettings();
 
@@ -51,6 +50,8 @@ async function refresh() {
     chrome.storage.local.get(LAST_UPLOAD_KEY)
   ]);
   const running = timers.find(({ value }) => value.status === "running" || value.status === "paused")?.value;
+  uploadPending.disabled = pending.length === 0;
+  uploadPending.textContent = pending.length > 0 ? `${pending.length}건 모두 업로드` : "대기 기록 업로드";
   activity.innerHTML = `
     <div><span>RUNNING</span>${running ? `${running.title}<b>${running.status === "paused" ? "일시정지" : "기록 중"}</b>` : "실행 중인 타이머 없음"}</div>
     <div><span>WAITING</span>업로드 대기 ${pending.length}건</div>
@@ -108,27 +109,39 @@ document.querySelector("#openTimer")?.addEventListener("click", async () => {
   window.close();
 });
 
-document.querySelector("#uploadPending")?.addEventListener("click", async () => {
+uploadPending.addEventListener("click", async () => {
   const pending = await findPending();
-  const first = pending[0];
-  if (!first) {
+  if (pending.length === 0) {
     showMessage("업로드 대기 중인 기록이 없습니다.");
     return;
   }
-  showMessage("대기 기록을 업로드하는 중 · · ·");
-  const response = await chrome.runtime.sendMessage({ type: "record.upload", pending: first.value }) as {
-    ok: boolean;
-    result?: { status: string };
-    error?: string;
-  };
-  if (!response.ok) {
-    showMessage(response.error ?? "업로드에 실패했습니다.", true);
-    return;
+
+  uploadPending.disabled = true;
+  let uploaded = 0;
+  let duplicates = 0;
+  try {
+    for (const [index, item] of pending.entries()) {
+      showMessage(`대기 기록 업로드 중 ${index + 1}/${pending.length} · · ·`);
+      const response = await chrome.runtime.sendMessage({ type: "record.upload", pendingKey: item.key, pending: item.value }) as {
+        ok: boolean;
+        result?: { status: string };
+        error?: string;
+      };
+      if (!response.ok) {
+        showMessage(`${uploaded + duplicates}건 처리 후 중단했습니다. ${response.error ?? "업로드에 실패했습니다."}`, true);
+        return;
+      }
+      if (response.result?.status === "duplicate") duplicates += 1;
+      else uploaded += 1;
+    }
+
+    const duplicateText = duplicates > 0 ? ` · 이미 등록 ${duplicates}건 정리` : "";
+    showMessage(`새 기록 ${uploaded}건 업로드 완료${duplicateText}`);
+  } catch {
+    showMessage(`${uploaded + duplicates}건 처리 후 중단했습니다. 확장 프로그램 연결을 다시 확인해 주세요.`, true);
+  } finally {
+    await refresh();
   }
-  await removeStored(first.key);
-  await setStored(LAST_UPLOAD_KEY, response.result?.status === "duplicate" ? "이미 등록된 기록" : new Date().toLocaleString("ko-KR"));
-  showMessage(response.result?.status === "duplicate" ? "이미 오늘 업로드된 문제예요." : "업로드를 완료했습니다.");
-  await refresh();
 });
 
 openDashboard.addEventListener("click", async () => {
