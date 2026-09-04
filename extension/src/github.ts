@@ -14,7 +14,7 @@ import {
 
 const API = "https://api.github.com";
 const API_VERSION = "2022-11-28";
-const MAX_CONFLICT_RETRIES = 3;
+const MAX_CONFLICT_RETRIES = 4;
 
 export class GitHubApiError extends Error {
   constructor(message: string, readonly status: number) {
@@ -52,7 +52,11 @@ async function responseError(response: Response): Promise<never> {
 async function request<T>(url: string, token: string, init?: RequestInit): Promise<T> {
   let response: Response;
   try {
-    response = await fetch(url, { ...init, headers: { ...headers(token), ...init?.headers } });
+    response = await fetch(url, {
+      ...init,
+      cache: "no-store",
+      headers: { ...headers(token), ...init?.headers }
+    });
   } catch {
     throw new GitHubApiError("GitHub에 연결할 수 없습니다. 네트워크 상태를 확인해 주세요.", 0);
   }
@@ -96,7 +100,10 @@ async function readUserFile(
 ): Promise<{ data: UserData | null; sha?: string }> {
   const filePath = `data/users/${githubId}.json`;
   const url = `${API}/repos/${encodeURIComponent(settings.owner)}/${encodeURIComponent(settings.repo)}/contents/${filePath}?ref=${encodeURIComponent(settings.branch)}`;
-  const response = await fetch(url, { headers: headers(settings.githubToken) });
+  const response = await fetch(url, {
+    cache: "no-store",
+    headers: headers(settings.githubToken)
+  });
   if (response.status === 404) return { data: null };
   if (!response.ok) await responseError(response);
   const body = (await response.json()) as ContentResponse;
@@ -108,6 +115,12 @@ async function readUserFile(
 }
 
 const delay = (milliseconds: number) => new Promise((resolve) => setTimeout(resolve, milliseconds));
+
+function conflictDelay(attempt: number): number {
+  const exponential = 300 * 2 ** attempt;
+  const jitter = Math.floor(Math.random() * 200);
+  return Math.min(exponential + jitter, 2_500);
+}
 
 export async function uploadPendingSolve(settings: ExtensionSettings, pending: PendingSolve): Promise<UploadResult> {
   if (!settings.githubToken) throw new Error("GitHub 연결이 필요합니다.");
@@ -150,7 +163,7 @@ export async function uploadPendingSolve(settings: ExtensionSettings, pending: P
       if (attempt === MAX_CONFLICT_RETRIES - 1) {
         throw new GitHubApiError("동시 수정 충돌이 반복되었습니다. 임시 기록을 유지했으니 다시 시도해 주세요.", 409);
       }
-      await delay(200 * 2 ** attempt);
+      await delay(conflictDelay(attempt));
       continue;
     }
     if (!response.ok) await responseError(response);

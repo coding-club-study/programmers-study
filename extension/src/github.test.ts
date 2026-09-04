@@ -30,7 +30,10 @@ const pending: PendingSolve = {
 const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json" } });
 
-afterEach(() => vi.unstubAllGlobals());
+afterEach(() => {
+  vi.restoreAllMocks();
+  vi.unstubAllGlobals();
+});
 
 describe("GitHub Contents 업로드", () => {
   it("사용자 파일이 없으면 첫 업로드에서 생성한다", async () => {
@@ -41,11 +44,17 @@ describe("GitHub Contents 업로드", () => {
     vi.stubGlobal("fetch", fetchMock);
     const result = await uploadPendingSolve(settings, pending);
     expect(result).toMatchObject({ status: "success", commitSha: "commit-1" });
+    expect(fetchMock.mock.calls[0]![1]).toMatchObject({ cache: "no-store" });
+    expect(fetchMock.mock.calls[1]![1]).toMatchObject({ cache: "no-store" });
     const put = fetchMock.mock.calls[2]!;
     expect(put[1]).toMatchObject({ method: "PUT" });
   });
 
   it("409 충돌 후 최신 파일을 재조회하고 병합한다", async () => {
+    vi.spyOn(globalThis, "setTimeout").mockImplementation((handler) => {
+      if (typeof handler === "function") handler();
+      return 0 as unknown as ReturnType<typeof setTimeout>;
+    });
     const fetchMock = vi.fn()
       .mockResolvedValueOnce(json({ login: "aryoo", name: null, avatar_url: "avatar" }))
       .mockResolvedValueOnce(json({ message: "Not Found" }, 404))
@@ -55,18 +64,25 @@ describe("GitHub Contents 업로드", () => {
     vi.stubGlobal("fetch", fetchMock);
     await expect(uploadPendingSolve(settings, pending)).resolves.toMatchObject({ commitSha: "commit-2" });
     expect(fetchMock).toHaveBeenCalledTimes(5);
+    expect(fetchMock.mock.calls[1]![1]).toMatchObject({ cache: "no-store" });
+    expect(fetchMock.mock.calls[3]![1]).toMatchObject({ cache: "no-store" });
   });
 
   it("재시도 초과 시 오류를 내고 전달한 임시 기록은 변경하지 않는다", async () => {
+    vi.spyOn(globalThis, "setTimeout").mockImplementation((handler) => {
+      if (typeof handler === "function") handler();
+      return 0 as unknown as ReturnType<typeof setTimeout>;
+    });
     const original = structuredClone(pending);
     const fetchMock = vi.fn()
       .mockResolvedValueOnce(json({ login: "aryoo", name: null, avatar_url: "avatar" }));
-    for (let attempt = 0; attempt < 3; attempt += 1) {
+    for (let attempt = 0; attempt < 4; attempt += 1) {
       fetchMock.mockResolvedValueOnce(json({ message: "Not Found" }, 404));
       fetchMock.mockResolvedValueOnce(json({ message: "Conflict" }, 409));
     }
     vi.stubGlobal("fetch", fetchMock);
     await expect(uploadPendingSolve(settings, pending)).rejects.toBeInstanceOf(GitHubApiError);
     expect(pending).toEqual(original);
+    expect(fetchMock).toHaveBeenCalledTimes(9);
   });
 });

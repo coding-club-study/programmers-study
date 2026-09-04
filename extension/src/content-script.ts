@@ -15,7 +15,7 @@ import { isAcceptedResult, parseProblemPage, type ProblemPageInfo } from "./prog
 import {
   getSettings,
   getStored,
-  LAST_UPLOAD_KEY,
+  findPendingForProblem,
   PANEL_POSITION_KEY,
   pendingStorageKey,
   removeStored,
@@ -106,14 +106,16 @@ async function initialize() {
     language: page.language
   };
   const timerKey = timerStorageKey(githubId, page.problemId);
-  const pendingKey = pendingStorageKey(githubId, page.problemId);
+  const storedPending = await findPendingForProblem(githubId, page.problemId);
+  let pendingKey = storedPending?.key ?? pendingStorageKey(githubId, page.problemId);
   let timer: TimerState = (await getStored<TimerState>(timerKey)) ?? createTimer(timerInput);
-  let pending = await getStored<PendingSolve>(pendingKey);
+  let pending = storedPending?.value;
   await setStored(timerKey, timer);
   let collapsed = false;
   let statusMessage = "";
   let statusError = false;
   let staleAccepted = false;
+  let uploadInProgress = false;
   let tickHandle = 0;
   let solvedHandled = timer.status === "solved" || timer.status === "uploaded";
 
@@ -177,14 +179,14 @@ async function initialize() {
       <span class="solved">SOLVED! ★</span>
       <div class="clock">${formatClock(value.problem.durationSeconds)}</div>
       <label>풀이 시간
-        <input data-duration inputmode="numeric" value="${formatClock(value.problem.durationSeconds)}" aria-label="풀이 시간">
+        <input data-duration inputmode="numeric" value="${formatClock(value.problem.durationSeconds)}" aria-label="풀이 시간" ${uploadInProgress ? "disabled" : ""}>
       </label>
       <label>문제별 소감
-        <textarea data-reflection maxlength="500" placeholder="선택 사항이에요">${escapeHtml(value.reflection)}</textarea>
+        <textarea data-reflection maxlength="500" placeholder="선택 사항이에요" ${uploadInProgress ? "disabled" : ""}>${escapeHtml(value.reflection)}</textarea>
       </label>
       <div class="actions">
-        <button data-cancel>기록 취소</button>
-        <button class="hot" data-upload>풀이 기록 업로드</button>
+        <button data-cancel ${uploadInProgress ? "disabled" : ""}>기록 취소</button>
+        <button class="hot" data-upload ${uploadInProgress ? "disabled" : ""}>${uploadInProgress ? "업로드 중 · · ·" : "풀이 기록 업로드"}</button>
       </div>
     `;
   }
@@ -253,16 +255,25 @@ async function initialize() {
     panel.querySelector("[data-reflection]")?.addEventListener("input", (event) => {
       if (!pending) return;
       pending = { ...pending, reflection: (event.currentTarget as HTMLTextAreaElement).value };
-    });
-    panel.querySelector("[data-reflection]")?.addEventListener("blur", async () => {
-      if (pending) await setStored(pendingKey, pending);
+      void setStored(pendingKey, pending);
     });
     panel.querySelector("[data-upload]")?.addEventListener("click", async () => {
-      if (!pending) return;
+      if (!pending || uploadInProgress) return;
+      uploadInProgress = true;
       statusMessage = "GitHub에 기록을 업로드하는 중 · · ·";
       statusError = false;
       render();
-      const response = await sendMessage<{ ok: boolean; result?: { status: string }; error?: string }>({ type: "record.upload", pending });
+      let response: { ok: boolean; result?: { status: string }; error?: string };
+      try {
+        response = await sendMessage({ type: "record.upload", pendingKey, pending });
+      } catch {
+        uploadInProgress = false;
+        statusMessage = "확장 프로그램 연결을 다시 확인해 주세요.";
+        statusError = true;
+        render();
+        return;
+      }
+      uploadInProgress = false;
       if (!response.ok) {
         statusMessage = response.error ?? "업로드에 실패했습니다.";
         statusError = true;
@@ -272,9 +283,6 @@ async function initialize() {
       statusMessage = response.result?.status === "duplicate" ? "이미 오늘 업로드된 문제예요." : "업로드 완료! 대시보드가 곧 새로 배포됩니다.";
       statusError = false;
       timer = { ...timer, status: "uploaded" };
-      await setStored(timerKey, timer);
-      await removeStored(pendingKey);
-      await setStored(LAST_UPLOAD_KEY, response.result?.status === "duplicate" ? "이미 등록된 기록" : new Date().toLocaleString("ko-KR"));
       pending = undefined;
       render();
     });
@@ -305,7 +313,9 @@ async function initialize() {
       durationEdited: false,
       source: "chrome-extension"
     };
-    pending = { githubId, problem, reflection: "", createdAt: new Date().toISOString() };
+    const createdAt = new Date().toISOString();
+    pending = { githubId, problem, reflection: "", createdAt };
+    pendingKey = pendingStorageKey(githubId, page.problemId, createdAt);
     await Promise.all([setStored(timerKey, timer), setStored(pendingKey, pending)]);
     statusMessage = "정답을 확인했어요. 내용을 확인한 뒤 업로드해 주세요.";
     statusError = false;
@@ -353,8 +363,9 @@ async function initialize() {
       timer = changes[timerKey].newValue as TimerState;
       if (!pending) render();
     }
-    if (changes[pendingKey]) {
-      const nextPending = changes[pendingKey].newValue as PendingSolve | undefined;
+    const pendingChange = changes[pendingKey];
+    if (pendingChange) {
+      const nextPending = pendingChange.newValue as PendingSolve | undefined;
       const changedInAnotherContext = JSON.stringify(nextPending) !== JSON.stringify(pending);
       pending = nextPending;
       if (changedInAnotherContext) render();
@@ -374,7 +385,6 @@ async function initialize() {
   });
   observer.observe(document.body, { childList: true, subtree: true, attributes: true });
   window.addEventListener("pagehide", () => {
-    if (pending) void setStored(pendingKey, pending);
     clearInterval(tickHandle);
     observer.disconnect();
   }, { once: true });
