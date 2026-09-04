@@ -341,6 +341,22 @@
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/132202"
         }
       ]
+    },
+    "2026-09-04": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 344,
+          "language": "mysql",
+          "problemId": "133026",
+          "solvedAt": "2026-09-04T07:11:57.100Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-04T07:06:12.768Z",
+          "title": "성분으로 구분한 아이스크림 총 주문량",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/133026"
+        }
+      ]
     }
   }
 }
