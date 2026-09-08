@@ -404,6 +404,18 @@
           "startedAt": "2026-09-08T06:00:02.396Z",
           "title": "나머지 구하기",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120810?language=cpp"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 33,
+          "language": "C++",
+          "problemId": "120820",
+          "solvedAt": "2026-09-08T06:01:41.848Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-08T06:01:08.245Z",
+          "title": "나이 출력",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120820?language=cpp",
+          "reflection": "c++ 연습용 사칙연산테러 ㅎㅎ"
         }
       ]
     }
