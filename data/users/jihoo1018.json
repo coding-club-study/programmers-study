@@ -357,6 +357,22 @@
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/133026"
         }
       ]
+    },
+    "2026-09-08": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 29,
+          "language": "C++",
+          "problemId": "120804",
+          "solvedAt": "2026-09-08T05:52:43.096Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-08T05:52:13.476Z",
+          "title": "두 수의 곱 구하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120804?language=cpp"
+        }
+      ]
     }
   }
 }
