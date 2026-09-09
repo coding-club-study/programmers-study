@@ -432,6 +432,17 @@
           "startedAt": "2026-09-09T04:31:29.681Z",
           "title": "피자 나눠 먹기 (3)",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120816?language=cpp"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 75,
+          "language": "C++",
+          "problemId": "120817",
+          "solvedAt": "2026-09-09T04:35:46.918Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-09T04:34:31.522Z",
+          "title": "배열의 평균값",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120817?language=cpp"
         }
       ]
     }
