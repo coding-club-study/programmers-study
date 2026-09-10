@@ -483,6 +483,18 @@
           "title": "뒤집힌 문자열",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120822?language=cpp",
           "reflection": "c++ 은 charAt 대신 at"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 117,
+          "language": "C++",
+          "problemId": "120824",
+          "solvedAt": "2026-09-10T08:29:23.466Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-10T08:27:25.656Z",
+          "title": "짝수 홀수 개수",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120824?language=cpp",
+          "reflection": "C++에서 지역변수는 자동으로 0으로 초기화되지 않아. 선언만 하면 그 변수가 있던 메모리 자리에 뭐가 들어있었는지 모르는 채로 시작하는거야. 그래서 eve++, hol++을 아무리 해도 \"쓰레기값 + 카운트\"가 되는거지, 0부터 시작하는 카운트가 아니야."
         }
       ]
     }
