@@ -508,6 +508,22 @@
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120825?language=cpp"
         }
       ]
+    },
+    "2026-09-11": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 343,
+          "language": "C++",
+          "problemId": "120826",
+          "solvedAt": "2026-09-11T02:30:30.094Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-11T02:24:46.833Z",
+          "title": "특정 문자 제거하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/120826?language=cpp"
+        }
+      ]
     }
   }
 }
