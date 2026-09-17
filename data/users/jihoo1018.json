@@ -610,6 +610,17 @@
           "startedAt": "2026-09-17T07:18:45.713Z",
           "title": "조건에 맞게 수열 변환하기 3",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/181835?language=cpp"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 100,
+          "language": "C++",
+          "problemId": "181926",
+          "solvedAt": "2026-09-17T07:22:41.277Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-17T07:21:00.729Z",
+          "title": "수 조작하기 1",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/181926?language=cpp"
         }
       ]
     }
