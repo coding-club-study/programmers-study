@@ -574,6 +574,22 @@
           "reflection": "push_back 임"
         }
       ]
+    },
+    "2026-09-17": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 45,
+          "language": "C++",
+          "problemId": "181940",
+          "solvedAt": "2026-09-17T07:14:43.759Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-17T07:13:58.661Z",
+          "title": "문자열 곱하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/181940?language=cpp"
+        }
+      ]
     }
   }
 }
