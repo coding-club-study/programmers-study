@@ -599,6 +599,17 @@
           "startedAt": "2026-09-17T07:14:52.468Z",
           "title": "홀짝에 따라 다른 값 반환하기",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/181935?language=cpp"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 127,
+          "language": "C++",
+          "problemId": "181835",
+          "solvedAt": "2026-09-17T07:20:52.875Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-17T07:18:45.713Z",
+          "title": "조건에 맞게 수열 변환하기 3",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/181835?language=cpp"
         }
       ]
     }
