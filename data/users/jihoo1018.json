@@ -638,6 +638,18 @@
           "title": "문자열을 정수로 바꾸기",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/12925?language=java",
           "reflection": "integer.parseint 사용"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 780,
+          "language": "mysql",
+          "problemId": "164673",
+          "solvedAt": "2026-09-22T08:00:31.815Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-22T07:47:31.390Z",
+          "title": "조건에 부합하는 중고거래 댓글 조회하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/164673",
+          "reflection": "국어문제"
         }
       ]
     }
