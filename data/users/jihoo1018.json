@@ -623,6 +623,23 @@
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/181926?language=cpp"
         }
       ]
+    },
+    "2026-09-22": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 321,
+          "language": "Java",
+          "problemId": "12925",
+          "solvedAt": "2026-09-22T07:46:49.576Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-22T07:41:28.174Z",
+          "title": "문자열을 정수로 바꾸기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/12925?language=java",
+          "reflection": "integer.parseint 사용"
+        }
+      ]
     }
   }
 }
