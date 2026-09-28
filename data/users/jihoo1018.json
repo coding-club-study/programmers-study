@@ -677,6 +677,18 @@
           "startedAt": "2026-09-28T04:17:30.013Z",
           "title": "5월 식품들의 총매출 조회하기",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/131117"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 1128,
+          "language": "java",
+          "problemId": "181188",
+          "solvedAt": "2026-09-28T08:31:11.908Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-28T08:12:23.893Z",
+          "title": "요격 시스템",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/181188",
+          "reflection": "그리디는 어려워"
         }
       ]
     }
