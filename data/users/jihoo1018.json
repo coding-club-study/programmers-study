@@ -666,6 +666,17 @@
           "startedAt": "2026-09-28T04:14:29.780Z",
           "title": "오랜 기간 보호한 동물(1)",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/59044"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 768,
+          "language": "mysql",
+          "problemId": "131117",
+          "solvedAt": "2026-09-28T04:30:18.924Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-28T04:17:30.013Z",
+          "title": "5월 식품들의 총매출 조회하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/131117"
         }
       ]
     }
