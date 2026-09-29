@@ -138,6 +138,23 @@
           "reflection": "쌀국수 먹고싶오"
         }
       ]
+    },
+    "2026-09-30": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 791,
+          "language": "Java",
+          "problemId": "42577",
+          "solvedAt": "2026-09-29T23:35:31.458Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-09-29T23:22:19.956Z",
+          "title": "전화번호 목록",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/42577?language=java",
+          "reflection": "해시가 뭔데"
+        }
+      ]
     }
   }
 }
