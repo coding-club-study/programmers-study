@@ -155,6 +155,23 @@
           "reflection": "해시가 뭔데"
         }
       ]
+    },
+    "2026-10-02": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 2737,
+          "language": "java",
+          "problemId": "42586",
+          "solvedAt": "2026-10-02T10:24:51.119Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-10-02T09:39:13.131Z",
+          "title": "기능개발",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/42586",
+          "reflection": "나느ㄴ 바보다.."
+        }
+      ]
     }
   }
 }
