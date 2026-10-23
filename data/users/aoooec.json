@@ -172,6 +172,22 @@
           "reflection": "나느ㄴ 바보다.."
         }
       ]
+    },
+    "2026-10-23": {
+      "reflection": "",
+      "problems": [
+        {
+          "durationEdited": false,
+          "durationSeconds": 138,
+          "language": "mysql",
+          "problemId": "131697",
+          "solvedAt": "2026-10-23T11:31:27.407Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-10-23T11:29:08.510Z",
+          "title": "가장 비싼 상품 구하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/131697"
+        }
+      ]
     }
   }
 }
