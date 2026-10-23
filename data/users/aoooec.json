@@ -219,6 +219,17 @@
           "startedAt": "2026-10-23T11:41:07.325Z",
           "title": "최솟값 구하기",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/59038"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 315,
+          "language": "mysql",
+          "problemId": "59406",
+          "solvedAt": "2026-10-23T11:48:34.071Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-10-23T11:43:19.033Z",
+          "title": "동물 수 구하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/59406"
         }
       ]
     }
