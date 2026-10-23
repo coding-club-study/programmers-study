@@ -186,6 +186,17 @@
           "startedAt": "2026-10-23T11:29:08.510Z",
           "title": "가장 비싼 상품 구하기",
           "url": "https://school.programmers.co.kr/learn/courses/30/lessons/131697"
+        },
+        {
+          "durationEdited": false,
+          "durationSeconds": 332,
+          "language": "mysql",
+          "problemId": "131115",
+          "solvedAt": "2026-10-23T11:37:10.479Z",
+          "source": "chrome-extension",
+          "startedAt": "2026-10-23T11:31:38.009Z",
+          "title": "가격이 제일 비싼 식품의 정보 출력하기",
+          "url": "https://school.programmers.co.kr/learn/courses/30/lessons/131115"
         }
       ]
     }
